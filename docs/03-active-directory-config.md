@@ -1,22 +1,18 @@
-The first task I completed was renaming the server to "DC01" (Domain Controller 01)
-for clarity, ability to identify during troubleshooting, as well as appropriate logs
-and auditing.
+The first task I completed was renaming the server to DC01 (Domain Controller 01) to follow a clear naming convention.
+This makes the system easier to identify during troubleshooting, logging, and auditing activities.
 
-I established a static IP address for this Domain Controller for reliability and
-pointed DNS to the same Domain Controller due to it's hosting DNS for the domain.
+I then configured a static IP address for the domain controller to ensure consistent network identification and reliability.
+I also pointed the DNS settings to the same server, since it is hosting DNS services for the domain.
+This prevents connectivity issues and ensures clients can reliably locate the domain controller.
 
-I then installed AD DS and DNS server roles. AD DS preforms the storage of users, groups,
-computers, polices and provides the domain structure. DNS allow devices to locate what
-they need. (--Is it necessary to spell out what AD DS and DNS do for recruiters?--)
+Next, I installed the Active Directory Domain Services (AD DS) and DNS Server roles.
+AD DS stores and manages domain objects such as users, groups, computers, and policies, while DNS enables devices to locate domain services across the network.
 
-I followed this up by promoting the server to domain controller and created a new forest.
-The new domain is labeled "homelab.local". (--is this last sentence necessary?--)
+After installing these roles, I promoted the server to a domain controller and created a new forest. The domain was named homelab.local.
 
-I verified that my configuration was successful in ADUC (Active Directory Users and Computers). (--is this text in parethesis necessary?--)
-Upon seeing "DC01" in the directory I understood that the promotion to domain controller was
-successful.
+I verified that the configuration was successful by using Active Directory Users and Computers (ADUC).
+Seeing the DC01 computer object within the directory confirmed that the promotion process completed successfully.
 
-I further verified DNS Manager to contain the necessary SRV records and structures to inform
-clients where to find Kerberos, LDAP, as well as domain controller and replication services.
-With this I ensured my domain controller registered itself correctly, clients are able to find
-it, and I have a functioning active directory + DNS integration.
+I further validated the setup by reviewing DNS Manager and confirming the presence of the required SRV records and domain
+structures. These records inform client devices where to locate Kerberos authentication, LDAP directory services, and domain controller replication endpoints.
+This verification confirmed that the domain controller registered correctly and that Active Directory and DNS are functioning together as expected.
